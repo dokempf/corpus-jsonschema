@@ -1,0 +1,80 @@
+{
+  "properties": {
+    "input": {
+      "default": "input.txt",
+      "title": "Input file",
+      "type": "string"
+    },
+    "output": {
+      "default": "out/output",
+      "title": "Output directory",
+      "type": "string"
+    },
+    "tooldict": {
+      "anyOf": [
+        {
+          "properties": {
+            "lang": {
+              "default": "en",
+              "description": "Language code for the language to build the Pipeline in",
+              "enum": [
+                "en",
+                "de"
+              ],
+              "title": "Language",
+              "type": "string"
+            },
+            "type": {
+              "const": "stanza",
+              "type": "string"
+            },
+            "use_GPU": {
+              "default": false,
+              "description": "Use GPU if available, False forces CPU only",
+              "title": "Use GPU",
+              "type": "boolean"
+            }
+          },
+          "title": "Stanza",
+          "type": "object"
+        },
+        {
+          "properties": {
+            "model": {
+              "default": "en_core_web_md",
+              "type": "string"
+            },
+            "type": {
+              "const": "spacy",
+              "type": "string"
+            }
+          },
+          "title": "Spacy",
+          "type": "object"
+        },
+        {
+          "properties": {
+            "lang": {
+              "default": "en",
+              "description": "Language code for the language to use",
+              "enum": [
+                "en",
+                "de"
+              ],
+              "title": "Language",
+              "type": "string"
+            },
+            "type": {
+              "const": "flair",
+              "type": "string"
+            }
+          },
+          "title": "Flair",
+          "type": "object"
+        }
+      ],
+      "title": "Tool to use"
+    }
+  },
+  "type": "object"
+}
